@@ -1,6 +1,6 @@
 <template>
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+    <div class="container-fluid bg-custom text-white-50 footer pt-5 mt-5"> <!-- 应用新的类 -->
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
@@ -78,6 +78,11 @@ export default {
 </script>
 
 <style scoped>
+.bg-custom {
+    background-color: hsla(329, 90%, 50%, 0.733);
+    /* 更改为你想要的颜色 */
+}
+
 .position-relative {
     position: relative;
 }
