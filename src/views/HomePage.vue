@@ -13,7 +13,7 @@
                   <p class="fs-5 fw-medium text-white mb-4 pb-2">{{ item.description }}</p>
                   <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">{{
                     item.button1 }}</a>
-                  <a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">{{ item.button2
+                  <a href="" class="btn btn-light rounded-pill py-sm-3 px-sm-5 animated slideInRight">{{ item.button2
                     }}</a>
                 </div>
               </div>
