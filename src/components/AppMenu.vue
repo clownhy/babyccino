@@ -6,7 +6,7 @@
                 <div class="row g-0">
                     <div class="col-lg-6 col-md-12 d-flex align-items-stretch">
                         <div class="position-relative w-100">
-                            <img class="img-fluid w-100 h-100" src="@/assets/images/menu.png" alt="Kids Cafe Menu"
+                            <img class="img-fluid w-100 h-100" src="@/assets/images/food1.jpg" alt="Kids Cafe Menu"
                                 style="object-fit: cover;" />
                         </div>
                     </div>

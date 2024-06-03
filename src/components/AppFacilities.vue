@@ -3,9 +3,9 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">School Facilities</h1>
-                <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
-                    eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                <h1 class="mb-3">Our Cafe Features</h1>
+                <p>Welcome to Kids Cafe, where fun and learning come together. Explore our facilities designed to
+                    provide a delightful experience for both kids and parents.</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -112,7 +112,7 @@ export default {
 }
 
 .bg-primary {
-    background-color: #007bff !important;
+    background-color: #fda470 !important;
 }
 
 .bg-success {
@@ -128,7 +128,7 @@ export default {
 }
 
 .text-primary {
-    color: #007bff !important;
+    color: #fda470 !important;
 }
 
 .text-success {

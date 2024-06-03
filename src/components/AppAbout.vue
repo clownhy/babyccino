@@ -13,11 +13,11 @@
             stimulating environment. Our facilities include a vibrant play area, an arts and crafts zone, a
             mini-library, and regular themed events. Join us and let your child's imagination soar at Babyccino Kids
             Cafe!</p>
-          <div class="row g-4 align-items-center">
-            <div class="col-sm-6">
+          <div class="row g-2 align-items-center">
+            <div class="col-sm-12">
               <a class="btn btn-primary rounded-pill py-3 px-5" href="">Learn More</a>
             </div>
-            <div class="col-sm-6">
+            <!-- <div class="col-sm-6">
               <div class="d-flex align-items-center">
                 <img class="rounded-circle flex-shrink-0" src="@/assets/img/user.jpg" alt=""
                   style="width: 45px; height: 45px;">
@@ -26,19 +26,19 @@
                   <small>Founder & CEO</small>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
           <div class="row">
             <div class="col-12 text-center">
-              <img class="img-fluid w-75 rounded-circle bg-light p-3" src="@/assets/img/about-1.jpg" alt="">
+              <img class="img-fluid w-75 rounded-circle bg-light p-3" src="@/assets/images/play5.jpg" alt="">
             </div>
             <div class="col-6 text-start" style="margin-top: -150px;">
-              <img class="img-fluid w-100 rounded-circle bg-light p-3" src="@/assets/img/about-2.jpg" alt="">
+              <img class="img-fluid w-100 rounded-circle bg-light p-3" src="@/assets/images/recjimu.png" alt="">
             </div>
             <div class="col-6 text-end" style="margin-top: -150px;">
-              <img class="img-fluid w-100 rounded-circle bg-light p-3" src="@/assets/img/about-3.jpg" alt="">
+              <img class="img-fluid w-100 rounded-circle bg-light p-3" src="@/assets/images/party10.jpg" alt="">
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@ export default {
 }
 
 .text-primary {
-  color: #007bff !important;
+  color: #fda470 !important;
 }
 
 .rounded-circle {

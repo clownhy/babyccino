@@ -79,18 +79,25 @@ export default defineComponent({
       },
       carouselItems: [
         {
-          image: require('@/assets/img/carousel-1.jpg'),
-          title: 'The Best Kindergarten School For Your Child',
-          description: 'Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.',
+          image: require('@/assets/images/play3.jpg'),
+          title: 'The Perfect Cafe for Kids and Families',
+          description: 'At our cafe, kids can play and learn while parents enjoy a cup of coffee. Our environment is safe and welcoming for all families.',
           button1: 'Learn More',
-          button2: 'Our Classes'
+          button2: 'Our Activities'
         },
         {
-          image: require('@/assets/img/carousel-2.jpg'),
-          title: 'Make A Brighter Future For Your Child',
-          description: 'Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.',
+          image: require('@/assets/images/play2.jpg'),
+          title: 'Creating a Brighter Future for Your Child',
+          description: 'We offer a variety of educational and entertaining activities to help children learn and grow. Join us in creating a joyful and knowledgeable future for kids.',
           button1: 'Learn More',
-          button2: 'Our Classes'
+          button2: 'Our Activities'
+        },
+        {
+          image: require('@/assets/images/play1.jpg'),
+          title: 'Growing Up with Joy',
+          description: 'Our cafe is not just a playground for kids but also a place for them to learn and grow. We strive to provide an environment where children are happy and parents are at ease.',
+          button1: 'Learn More',
+          button2: 'Our Activities'
         }
       ]
     }

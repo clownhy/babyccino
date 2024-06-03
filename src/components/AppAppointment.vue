@@ -53,8 +53,44 @@
                     </div>
                     <div class="col-12 col-lg-6 d-flex align-items-stretch" style="min-height: 400px;">
                         <div class="position-relative w-100">
-                            <img class="img-fluid w-100 h-100 rounded" src="@/assets/img/appointment.jpg"
-                                alt="Appointment" style="object-fit: cover;" />
+                            <div class="grid-container">
+                                <div class="grid-item">
+                                    <img src="@/assets/images/party1.jpg" alt="Party Image 1"
+                                        class="img-fluid rounded cute-border" />
+                                </div>
+                                <div class="grid-item">
+                                    <img src="@/assets/images/party2.jpg" alt="Party Image 2"
+                                        class="img-fluid rounded cute-border" />
+                                </div>
+                                <div class="grid-item">
+                                    <img src="@/assets/images/party3.jpg" alt="Party Image 3"
+                                        class="img-fluid rounded cute-border" />
+                                </div>
+                                <div class="grid-item">
+                                    <img src="@/assets/images/party4.jpg" alt="Party Image 4"
+                                        class="img-fluid rounded cute-border" />
+                                </div>
+                                <div class="grid-item">
+                                    <img src="@/assets/images/party5.jpg" alt="Party Image 5"
+                                        class="img-fluid rounded cute-border" />
+                                </div>
+                                <div class="grid-item">
+                                    <img src="@/assets/images/party6.jpg" alt="Party Image 6"
+                                        class="img-fluid rounded cute-border" />
+                                </div>
+                                <div class="grid-item">
+                                    <img src="@/assets/images/party7.jpg" alt="Party Image 7"
+                                        class="img-fluid rounded cute-border" />
+                                </div>
+                                <div class="grid-item">
+                                    <img src="@/assets/images/party8.jpg" alt="Party Image 8"
+                                        class="img-fluid rounded cute-border" />
+                                </div>
+                                <div class="grid-item">
+                                    <img src="@/assets/images/party9.jpg" alt="Party Image 9"
+                                        class="img-fluid rounded cute-border" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -96,6 +132,25 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cute-border {
+    border: 5px solid #f3d8e5;
+    /* 可爱的粉红色边框 */
+    border-radius: 10px;
 }
 
 @media (max-width: 768px) {

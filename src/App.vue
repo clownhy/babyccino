@@ -23,10 +23,11 @@ export default {
 
 <style>
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+  background-color: #f0f8ff;
+  /* 浅蓝色背景 */
 }
 
 #app {
@@ -39,7 +40,7 @@ body {
 
 /* Add global styles to beautify the page */
 header {
-  background: url('/src/assets/images/zhengti.png') no-repeat center center;
+  /* background: url('@/assets/images/zhengti.png') no-repeat center center; */
   background-size: cover;
   height: 300px;
   display: flex;
@@ -51,6 +52,8 @@ header {
 
 header h1 {
   font-size: 3rem;
+  color: hsl(329, 92%, 70%);
+  /* 粉色 */
 }
 
 .section {
@@ -64,5 +67,34 @@ header h1 {
 .section img {
   width: 100%;
   border-radius: 10px;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-link {
+  color: hsl(329, 92%, 70%) !important;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 1.2rem;
+}
+
+.nav-link:hover {
+  color: #fda470 !important;
+}
+
+.text-primary {
+  color: hsl(329, 92%, 70%) !important;
+}
+
+.btn-primary {
+  background-color: hsl(329, 92%, 70%) !important;
+  border-color: hsl(329, 92%, 70%) !important;
+}
+
+.btn-primary:hover {
+  background-color: #fda470 !important;
+  border-color: #fda470 !important;
 }
 </style>

@@ -46,15 +46,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="text-white mb-4">Newsletter</h3>
-                    <p>Stay updated with our latest news and offers. Subscribe to our newsletter.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
-                            placeholder="Your email" />
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">
-                            Sign Up
-                        </button>
+                <div class="col-lg-3 col-md-6 text-center d-flex align-items-center flex-column">
+                    <h3 class="text-white mb-4">Follow Us on WeChat</h3>
+                    <div class="d-flex justify-content-center">
+                        <img class="img-fluid rounded bg-light p-1" src="@/assets/images/code.png" alt="WeChat QR Code"
+                            style="max-width: 200px; margin-bottom: 10px;">
                     </div>
                 </div>
             </div>
@@ -84,5 +80,31 @@ export default {
 <style scoped>
 .position-relative {
     position: relative;
+}
+
+.text-center h3 {
+    display: inline;
+    white-space: nowrap;
+}
+
+.text-center p {
+    margin-top: 10px;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.d-flex.justify-content-center img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.col-lg-3.col-md-6.text-center.d-flex.align-items-center.flex-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>
