@@ -10,8 +10,11 @@
   "homepage": "https://clownhy.github.io/babyccino/",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
+    "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "core-js": "^3.6.5",
+    "jquery": "^3.7.1",
+    "popper.js": "^1.16.1",
     "swiper": "^6.8.4",
     "vue": "^2.6.11",
     "vue-router": "^3.6.5"
@@ -21,9 +24,11 @@
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "cache-loader": "^4.1.0",
+    "css-loader": "^6.7.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "gh-pages": "^3.2.3",
+    "style-loader": "^3.3.1",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.46.0"
   }
