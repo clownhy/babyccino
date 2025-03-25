@@ -7,45 +7,55 @@
                     <div class="col-12 col-lg-6 d-flex align-items-center">
                         <div class="p-5">
                             <h1 class="mb-4">Make Appointment</h1>
-                            <form @submit.prevent="submitForm">
+                            <div v-if="formStatus" class="alert" :class="{'alert-success': formStatus === 'success', 'alert-danger': formStatus === 'error'}">
+                                <p v-if="formStatus === 'success'">Thank you! Your appointment request has been sent. We'll contact you shortly.</p>
+                                <p v-if="formStatus === 'error'">Oops! There was a problem submitting your form. Please try again later.</p>
+                            </div>
+                            <form v-if="formStatus !== 'success'" @submit.prevent="submitForm" ref="appointmentForm">
+                                <!-- 隐藏的formspree识别字段 -->
+                                <input type="hidden" name="_subject" value="New Appointment Request from Babyccino Website" />
+                                <input type="text" name="_gotcha" style="display:none" />
                                 <div class="row g-3">
                                     <div class="col-sm-6">
                                         <div class="form-floating">
                                             <input type="text" class="form-control border-0" id="gname"
-                                                v-model="form.guardianName" placeholder="Guardian Name" />
+                                                name="guardianName" v-model="form.guardianName" placeholder="Guardian Name" required />
                                             <label for="gname">Guardian Name</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-floating">
                                             <input type="email" class="form-control border-0" id="gmail"
-                                                v-model="form.guardianEmail" placeholder="Guardian Email" />
+                                                name="guardianEmail" v-model="form.guardianEmail" placeholder="Guardian Email" required />
                                             <label for="gmail">Guardian Email</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-floating">
                                             <input type="text" class="form-control border-0" id="cname"
-                                                v-model="form.childName" placeholder="Child Name" />
+                                                name="childName" v-model="form.childName" placeholder="Child Name" required />
                                             <label for="cname">Child Name</label>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-floating">
                                             <input type="text" class="form-control border-0" id="cage"
-                                                v-model="form.childAge" placeholder="Child Age" />
+                                                name="childAge" v-model="form.childAge" placeholder="Child Age" required />
                                             <label for="cage">Child Age</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
                                             <textarea class="form-control border-0" placeholder="Leave a message here"
-                                                id="message" style="height: 100px" v-model="form.message"></textarea>
+                                                id="message" name="message" style="height: 100px" v-model="form.message"></textarea>
                                             <label for="message">Message</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                        <button class="btn btn-primary w-100 py-3" type="submit" :disabled="isSubmitting">
+                                            <span v-if="isSubmitting">Sending...</span>
+                                            <span v-else>Submit</span>
+                                        </button>
                                     </div>
                                 </div>
                             </form>
@@ -111,13 +121,54 @@ export default {
                 childName: '',
                 childAge: '',
                 message: ''
-            }
+            },
+            formspreeEndpoint: 'https://formspree.io/f/mblgkjpy', // 请替换为您的Formspree表单ID
+            formStatus: null,
+            isSubmitting: false
         };
     },
     methods: {
-        submitForm() {
-            console.log('Form submitted:', this.form);
-            alert('Form submitted! Check the console for details.');
+        async submitForm() {
+            this.isSubmitting = true;
+            
+            try {
+                const formData = new FormData();
+                // 添加表单数据
+                Object.keys(this.form).forEach(key => {
+                    formData.append(key, this.form[key]);
+                });
+                
+                // 发送到Formspree
+                const response = await fetch(this.formspreeEndpoint, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // 表单提交成功
+                    this.formStatus = 'success';
+                    // 重置表单
+                    this.form = {
+                        guardianName: '',
+                        guardianEmail: '',
+                        childName: '',
+                        childAge: '',
+                        message: ''
+                    };
+                } else {
+                    // 表单提交失败
+                    this.formStatus = 'error';
+                    console.error('Form submission failed');
+                }
+            } catch (error) {
+                this.formStatus = 'error';
+                console.error('Error submitting form:', error);
+            } finally {
+                this.isSubmitting = false;
+            }
         }
     }
 };
@@ -151,6 +202,25 @@ export default {
     border: 5px solid #f3d8e5;
     /* 可爱的粉红色边框 */
     border-radius: 10px;
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
 @media (max-width: 768px) {

@@ -1,9 +1,12 @@
 // src/router/index.js
-import { createRouter, createWebHistory } from 'vue-router';
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 import HomeView from '../views/HomePage.vue';
 import PlayAreaView from '../views/PlayArea.vue';
 import EatDrinkView from '../views/EatDrink.vue';
 import PartiesView from '../views/PartiesPage.vue';
+
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -28,8 +31,9 @@ const routes = [
   },
 ];
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes,
 });
 

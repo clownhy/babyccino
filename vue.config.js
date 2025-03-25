@@ -1,5 +1,11 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true,
-  publicPath: process.env.NODE_ENV === 'production' ? '/babyccino/' : '/'
-})
+module.exports = {
+  transpileDependencies: [],
+  publicPath: process.env.NODE_ENV === 'production' ? '/babyccino/' : '/',
+  configureWebpack: {
+    resolve: {
+      alias: {
+        'bootstrap': require.resolve('bootstrap')
+      }
+    }
+  }
+}
