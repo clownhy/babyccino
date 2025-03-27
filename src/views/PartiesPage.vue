@@ -30,7 +30,7 @@
               <ul class="party-features">
                 <li><i class="fas fa-check-circle text-primary me-2"></i> Entry for 20 kids & 30 adults</li>
                 <li><i class="fas fa-check-circle text-primary me-2"></i> 3-hours play time for private party</li>
-                <li><i class="fas fa-check-circle text-primary me-2"></i> No walk-in accepted during private party period</li>
+                <li><i class="fas fa-check-circle text-primary me-2"></i> No walk-in accepted during the private party period</li>
                 <li><i class="fas fa-check-circle text-primary me-2"></i> 20 kids meals included</li>
               </ul>
               
@@ -102,7 +102,7 @@
                 <span class="time">4:00pm - 7:00pm</span>
               </div>
               <div class="package-price">
-                <span class="price-tag">$649</span>
+                <span class="price-tag">$599</span>
               </div>
             </div>
           </div>
@@ -141,13 +141,6 @@
                   <i class="fas fa-utensils text-primary"></i>
                   <div class="policy-text">
                     <p>Please bring adults cutlery, plates, and cups.</p>
-                  </div>
-                </div>
-                
-                <div class="policy-item">
-                  <i class="fas fa-clipboard-list text-primary"></i>
-                  <div class="policy-text">
-                    <p>For adults party menu options, please see our party food menu.</p>
                   </div>
                 </div>
               </div>

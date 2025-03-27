@@ -1,6 +1,6 @@
 module.exports = {
   transpileDependencies: [],
-  publicPath: '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/babyccino/' : '/',
   configureWebpack: {
     resolve: {
       alias: {
