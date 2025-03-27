@@ -14,7 +14,7 @@
             <router-link class="nav-link" to="/" exact>Home</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/#facilities">Our Features</a>
+            <router-link class="nav-link" to="/" @click.native="goToFeatures">Our Features</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/eat-drink">Menu</router-link>
@@ -40,6 +40,27 @@
 <script>
 export default {
   name: 'AppNavbar',
+  methods: {
+    goToFeatures() {
+      // 先判断是否已经在首页
+      if (this.$route.path === '/') {
+        // 如果已经在首页，直接滚动到features部分
+        this.$nextTick(() => {
+          const facilitiesSection = document.getElementById('facilities');
+          if (facilitiesSection) {
+            facilitiesSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      } else {
+        // 如果不在首页，先导航到首页，然后设置一个标记
+        // 通过导航到首页同时传递features标记参数
+        this.$router.push({ 
+          path: '/', 
+          query: { scrollTo: 'facilities' }
+        });
+      }
+    }
+  }
 };
 </script>
 

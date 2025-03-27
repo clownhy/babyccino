@@ -107,8 +107,8 @@
 <script>
 import Facilities from '@/components/AppFacilities.vue';
 import About from '@/components/AppAbout.vue';
-import Appointment from '@/components/AppAppointment.vue';
 import Menu from '@/components/AppMenu.vue';
+import Appointment from '@/components/AppAppointment.vue';
 
 export default {
   name: 'HomePage',
@@ -152,6 +152,36 @@ export default {
     
     // 添加滚动事件监听
     window.addEventListener('scroll', this.handleScroll);
+
+    // 检查URL中是否包含#facilities锚点
+    if (window.location.hash === '#facilities') {
+      this.$nextTick(() => {
+        const facilitiesSection = document.getElementById('facilities');
+        if (facilitiesSection) {
+          // 给一点延迟确保DOM完全加载
+          setTimeout(() => {
+            facilitiesSection.scrollIntoView({ behavior: 'smooth' });
+          }, 500);
+        }
+      });
+    }
+
+    // 检查URL查询参数中是否包含scrollTo
+    if (this.$route.query.scrollTo) {
+      // 等待DOM加载完成
+      this.$nextTick(() => {
+        const section = document.getElementById(this.$route.query.scrollTo);
+        if (section) {
+          // 等待一点时间确保所有内容都渲染完成
+          setTimeout(() => {
+            section.scrollIntoView({ behavior: 'smooth' });
+          }, 500);
+        }
+      });
+      
+      // 清除查询参数，保持URL干净
+      this.$router.replace({ path: this.$route.path, query: {} });
+    }
   },
   beforeDestroy() {
     // 移除滚动事件监听
