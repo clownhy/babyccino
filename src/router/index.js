@@ -33,7 +33,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'hash',
-  base: process.env.BASE_URL,
+  base: process.env.NODE_ENV === 'production' ? '/babyccino/' : '/',
   routes,
 });
 
