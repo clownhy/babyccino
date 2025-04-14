@@ -15,7 +15,7 @@
         <div class="container-fluid footer-content py-5">
             <div class="container py-4">
                 <div class="row g-5">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <h3 class="footer-title mb-4">Get In Touch</h3>
                         <div class="contact-info">
                             <p class="footer-item"><i class="fa fa-map-marker-alt me-3"></i>95 Forest Rd, Hurstville NSW 2220</p>
@@ -30,7 +30,7 @@
                             <a class="social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <h3 class="footer-title mb-4">Quick Links</h3>
                         <ul class="footer-links">
                             <li><a href="#">About Us</a></li>
@@ -40,7 +40,7 @@
                             <li><a href="#">Terms & Condition</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-4 col-md-12">
+                    <div class="col-lg-3 col-md-6">
                         <h3 class="footer-title mb-4">Photo Gallery</h3>
                         <div class="gallery">
                             <a href="#" class="gallery-item">
@@ -61,6 +61,20 @@
                             <a href="#" class="gallery-item">
                                 <img src="@/assets/images/play3.jpg" alt="Gallery 6">
                             </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="footer-title mb-4">Find Us (Near WWS Hurstville East)</h3>
+                        <div class="map-container">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.0978138890713!2d151.09962807619566!3d-33.96727997913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b9e7b3f601d7%3A0x3bf601217c7b884d!2sBabyccino%20Kids%20Cafe!5e0!3m2!1sen!2sau!4v1711520000000!5m2!1sen!2sau"
+                                width="100%"
+                                height="200"
+                                style="border:0;border-radius:8px;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
                         </div>
                     </div>
 
@@ -230,6 +244,18 @@ export default {
     transform: scale(1.1);
 }
 
+.map-container {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.map-container:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
 .footer-bottom {
     background: rgba(0, 0, 0, 0.2);
     padding: 20px 0;
@@ -258,6 +284,17 @@ export default {
 
     .footer-bottom [class*="col-"] {
         text-align: center !important;
+    }
+
+    .footer-title {
+        font-size: 1.3rem;
+        word-wrap: break-word;
+    }
+}
+
+@media (max-width: 991px) {
+    .footer-title {
+        font-size: 1.4rem;
     }
 }
 </style>

@@ -8,7 +8,7 @@
         <p class="lead text-white mb-0 animated slideInUp">Celebrate special occasions with us</p>
       </div>
     </div>
-    
+
     <!-- Party Info Section -->
     <div class="container-xxl py-5">
       <div class="container">
@@ -16,14 +16,14 @@
           <h1 class="mb-3">Party <span class="text-primary">Packages</span></h1>
           <div class="divider mx-auto"></div>
         </div>
-        
+
         <div class="row g-4 mb-5">
           <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="party-image-container">
               <img src="@/assets/images/party1.jpg" alt="Party" class="img-fluid rounded shadow">
             </div>
           </div>
-          
+
           <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
             <div class="party-info h-100 d-flex flex-column">
               <h2 class="mb-4">Package <span class="text-primary">Includes</span></h2>
@@ -33,21 +33,21 @@
                 <li><i class="fas fa-check-circle text-primary me-2"></i> No walk-in accepted during the private party period</li>
                 <li><i class="fas fa-check-circle text-primary me-2"></i> 20 kids meals included</li>
               </ul>
-              
+
               <h3 class="mt-4 mb-3">Kids Party Menu</h3>
               <ul class="party-features">
                 <li><i class="fas fa-utensils text-primary me-2"></i> Chips & Chicken Nuggets</li>
                 <li><i class="fas fa-wine-bottle text-primary me-2"></i> Bottle of Juice</li>
                 <li><i class="fas fa-apple-alt text-primary me-2"></i> Fresh fruits</li>
               </ul>
-              
+
               <div class="mt-auto">
                 <p class="party-note"><i class="fas fa-info-circle me-2"></i> Extra Entry: $15 per kid</p>
               </div>
             </div>
           </div>
         </div>
-        
+
         <!-- Party Schedule & Prices -->
         <div class="row g-4">
           <div class="col-12">
@@ -57,7 +57,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="row g-4">
           <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="party-package">
@@ -70,7 +70,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
             <div class="party-package">
               <div class="package-header">
@@ -82,7 +82,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
             <div class="party-package">
               <div class="package-header">
@@ -94,7 +94,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
             <div class="party-package">
               <div class="package-header">
@@ -107,14 +107,14 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Party Policies -->
         <div class="row mt-5">
           <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
             <div class="party-policies">
               <h3 class="mb-4">Party <span class="text-primary">Policies</span></h3>
               <div class="divider mb-4"></div>
-              
+
               <div class="policy-list">
                 <div class="policy-item">
                   <i class="fas fa-utensils text-primary"></i>
@@ -122,21 +122,21 @@
                     <p>Feel free to bring food for adults. We do not cook or reheat food for adults.</p>
                   </div>
                 </div>
-                
+
                 <div class="policy-item">
                   <i class="fas fa-wine-bottle text-primary"></i>
                   <div class="policy-text">
                     <p>No outside drinks are allowed, please order here or BYO with charge of $50.</p>
                   </div>
                 </div>
-                
+
                 <div class="policy-item">
                   <i class="fas fa-money-bill text-primary"></i>
                   <div class="policy-text">
                     <p>We require $300 deposit to secure your booking. The deposit is not refundable.</p>
                   </div>
                 </div>
-                
+
                 <div class="policy-item">
                   <i class="fas fa-utensils text-primary"></i>
                   <div class="policy-text">
@@ -147,7 +147,7 @@
             </div>
           </div>
         </div>
-        
+
         <!-- CTA Section -->
         <div class="row mt-5">
           <div class="col-12 text-center">
@@ -168,18 +168,41 @@ export default {
     scrollToAppointment() {
       // 如果已经在首页，滚动到appointment部分
       if (this.$route.path === '/') {
-        this.$nextTick(() => {
+        // First scroll to top to reset position
+        window.scrollTo({ top: 0, behavior: 'auto' });
+        
+        setTimeout(() => {
           const appointmentSection = document.getElementById('appointment');
           if (appointmentSection) {
-            appointmentSection.scrollIntoView({ behavior: 'smooth' });
+            const yOffset = -80; // 考虑到导航栏的高度
+            const y = appointmentSection.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            
+            // 滚动后聚焦到该部分，增加可访问性
+            appointmentSection.setAttribute('tabindex', '-1');
+            appointmentSection.focus();
+            
+            // Add a second scroll attempt after animation for reliability
+            setTimeout(() => {
+              const currentPosition = window.scrollY;
+              const targetPosition = appointmentSection.getBoundingClientRect().top + window.scrollY + yOffset;
+              
+              if (Math.abs(currentPosition - targetPosition) > 50) {
+                console.log('Position correction needed:', currentPosition, targetPosition);
+                window.scrollTo({ top: targetPosition, behavior: 'auto' });
+              }
+            }, 800);
           }
-        });
+        }, 500); // 增加延迟，确保页面完全渲染
       } else {
-        // 如果不在首页，导航到首页并传递scrollTo参数
-        this.$router.push({ 
-          path: '/', 
+        // 如果不在首页，先滚动到顶部，然后导航到首页并传递scrollTo参数
+        window.scrollTo({ top: 0, behavior: 'auto' });
+        
+        // 使用参数指示首页需要滚动到appointment部分
+        this.$router.push({
+          path: '/',
           query: { scrollTo: 'appointment' }
-        });
+        }).catch(() => {});
       }
     }
   }
@@ -359,7 +382,7 @@ export default {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .party-image-container {
     margin-bottom: 2rem;
   }
@@ -369,11 +392,11 @@ export default {
   .party-info {
     padding: 1.5rem;
   }
-  
+
   .party-package {
     padding: 1.5rem;
   }
-  
+
   .price-tag {
     font-size: 2rem;
   }

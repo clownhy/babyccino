@@ -28,7 +28,7 @@
             <router-link class="nav-link" to="/parties">Parties</router-link>
           </li>
         </ul>
-        <a href="/#appointment" class="btn btn-primary rounded-pill px-4 ms-3 d-none d-lg-block">
+        <a href="javascript:void(0)" @click="goToAppointment" class="btn btn-primary rounded-pill px-4 ms-3 d-none d-lg-block">
           Book Now
           <i class="fa fa-arrow-right ms-2"></i>
         </a>
@@ -48,16 +48,38 @@ export default {
         this.$nextTick(() => {
           const facilitiesSection = document.getElementById('facilities');
           if (facilitiesSection) {
-            facilitiesSection.scrollIntoView({ behavior: 'smooth' });
+            const yOffset = -80; // 考虑到导航栏的高度
+            const y = facilitiesSection.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
           }
         });
       } else {
         // 如果不在首页，先导航到首页，然后设置一个标记
         // 通过导航到首页同时传递features标记参数
-        this.$router.push({ 
-          path: '/', 
+        this.$router.push({
+          path: '/',
           query: { scrollTo: 'facilities' }
+        }).catch(() => {});
+      }
+    },
+    goToAppointment() {
+      // 先判断是否已经在首页
+      if (this.$route.path === '/') {
+        // 如果已经在首页，直接滚动到appointment部分
+        this.$nextTick(() => {
+          const appointmentSection = document.getElementById('appointment');
+          if (appointmentSection) {
+            const yOffset = -80; // 考虑到导航栏的高度
+            const y = appointmentSection.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
         });
+      } else {
+        // 如果不在首页，先导航到首页，然后设置一个标记
+        this.$router.push({
+          path: '/',
+          query: { scrollTo: 'appointment' }
+        }).catch(() => {});
       }
     }
   }

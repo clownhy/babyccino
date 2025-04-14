@@ -96,7 +96,7 @@
         <Appointment></Appointment>
       </div>
     </section>
-    
+
     <!-- 返回顶部按钮 -->
     <a href="#" class="back-to-top" :class="{ 'show': showBackToTop }">
       <i class="fas fa-arrow-up"></i>
@@ -149,7 +149,7 @@ export default {
   mounted() {
     // 添加滚动时的淡入动画
     this.addScrollAnimation();
-    
+
     // 添加滚动事件监听
     window.addEventListener('scroll', this.handleScroll);
 
@@ -168,19 +168,57 @@ export default {
 
     // 检查URL查询参数中是否包含scrollTo
     if (this.$route.query.scrollTo) {
-      // 等待DOM加载完成
-      this.$nextTick(() => {
-        const section = document.getElementById(this.$route.query.scrollTo);
-        if (section) {
-          // 等待一点时间确保所有内容都渲染完成
-          setTimeout(() => {
-            section.scrollIntoView({ behavior: 'smooth' });
-          }, 500);
-        }
-      });
+      const targetId = this.$route.query.scrollTo;
       
-      // 清除查询参数，保持URL干净
-      this.$router.replace({ path: this.$route.path, query: {} });
+      // First scroll to top to reset position
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      
+      // 使用更长的延迟和重试机制确保元素已加载
+      const maxAttempts = 8; // Increased from 5 to 8
+      let attempts = 0;
+      
+      const tryScrolling = () => {
+        attempts++;
+        const section = document.getElementById(targetId);
+        
+        if (section) {
+          console.log(`Found ${targetId} section on attempt ${attempts}, scrolling...`);
+          
+          // 找到了目标元素，执行滚动
+          const yOffset = -80; // 考虑到导航栏的高度
+          const y = section.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+          
+          // 滚动后聚焦到该部分
+          section.setAttribute('tabindex', '-1');
+          section.focus();
+          
+          // Add a second scroll attempt after animation for reliability
+          setTimeout(() => {
+            const currentPosition = window.scrollY;
+            const targetPosition = section.getBoundingClientRect().top + window.scrollY + yOffset;
+            
+            if (Math.abs(currentPosition - targetPosition) > 50) {
+              console.log('Position correction needed:', currentPosition, targetPosition);
+              window.scrollTo({ top: targetPosition, behavior: 'auto' });
+            }
+            
+            // 清除查询参数，保持URL干净
+            this.$router.replace({ path: this.$route.path, query: {} }).catch(() => {});
+          }, 800);
+        } else if (attempts < maxAttempts) {
+          // 没找到元素但还有重试次数，继续尝试
+          console.log(`Attempt ${attempts}: ${targetId} not found, retrying...`);
+          setTimeout(tryScrolling, 700); // Increased from 500ms to 700ms
+        } else {
+          console.error(`Failed to find ${targetId} section after ${maxAttempts} attempts`);
+          // Clear query params even if scrolling failed
+          this.$router.replace({ path: this.$route.path, query: {} }).catch(() => {});
+        }
+      };
+      
+      // 延迟更长时间后开始第一次尝试，确保页面完全加载
+      setTimeout(tryScrolling, 800); // Increased from 500ms to 800ms
     }
   },
   beforeDestroy() {
@@ -191,7 +229,7 @@ export default {
     addScrollAnimation() {
       // 获取所有section元素
       const sections = document.querySelectorAll('.section-wrapper');
-      
+
       // 使用Intersection Observer API检测元素是否进入视口
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -201,7 +239,7 @@ export default {
           }
         });
       }, { threshold: 0.1 }); // 当10%的元素可见时触发
-      
+
       // 观察每个section
       sections.forEach(section => {
         observer.observe(section);
@@ -512,19 +550,19 @@ export default {
   .header-carousel {
     height: 70vh;
   }
-  
+
   .hero-title {
     font-size: 3rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.2rem;
   }
-  
+
   .section-wrapper {
     padding: 4rem 0;
   }
-  
+
   .section-heading {
     font-size: 2rem;
   }
@@ -534,24 +572,24 @@ export default {
   .header-carousel {
     height: 60vh;
   }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .hero-text {
     font-size: 1rem;
   }
-  
+
   .hero-buttons {
     flex-direction: column;
     gap: 0.5rem;
   }
-  
+
   .hero-buttons .btn {
     width: 100%;
   }
-  
+
   .section-wrapper {
     padding: 3rem 0;
   }
