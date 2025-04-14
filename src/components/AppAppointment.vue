@@ -39,9 +39,17 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="cage"
-                                                name="childAge" v-model="form.childAge" placeholder="Child Age" required />
-                                            <label for="cage">Child Age</label>
+                                            <input type="date" class="form-control border-0" id="cbirthdate"
+                                                name="childBirthdate" v-model="form.childBirthdate" placeholder="Child Birthdate" required />
+                                            <label for="cbirthdate">Child Birthdate</label>
+                                            <small class="form-text text-muted mt-1">Please select from calendar</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-floating">
+                                            <input type="tel" class="form-control border-0" id="contact"
+                                                name="contactNumber" v-model="form.contactNumber" placeholder="Contact Number" required />
+                                            <label for="contact">Contact Number</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -119,10 +127,11 @@ export default {
                 guardianName: '',
                 guardianEmail: '',
                 childName: '',
-                childAge: '',
+                childBirthdate: '',
+                contactNumber: '',
                 message: ''
             },
-            formspreeEndpoint: 'https://formspree.io/f/mblgkjpy', // 请替换为您的Formspree表单ID
+            formspreeEndpoint: 'https://formspree.io/f/mblgkjpy', // Replace with your Formspree form ID
             formStatus: null,
             isSubmitting: false
         };
@@ -155,7 +164,8 @@ export default {
                         guardianName: '',
                         guardianEmail: '',
                         childName: '',
-                        childAge: '',
+                        childBirthdate: '',
+                        contactNumber: '',
                         message: ''
                     };
                 } else {

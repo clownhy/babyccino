@@ -15,21 +15,22 @@
         <div class="container-fluid footer-content py-5">
             <div class="container py-4">
                 <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <h3 class="footer-title mb-4">Get In Touch</h3>
                         <div class="contact-info">
                             <p class="footer-item"><i class="fa fa-map-marker-alt me-3"></i>95 Forest Rd, Hurstville NSW 2220</p>
                             <p class="footer-item"><i class="fa fa-phone-alt me-3"></i>+45 8168509</p>
-                            <p class="footer-item"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                            <p class="footer-item"><i class="fa fa-envelope me-3"></i>babyccinohurstvill@gmail.com</p>
                         </div>
                         <div class="social-links mt-4">
                             <a class="social-icon" href="#"><i class="fab fa-twitter"></i></a>
                             <a class="social-icon" href="#"><i class="fab fa-facebook-f"></i></a>
                             <a class="social-icon" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="social-icon" href="#"><i class="fab fa-weixin"></i></a>
                             <a class="social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <h3 class="footer-title mb-4">Quick Links</h3>
                         <ul class="footer-links">
                             <li><a href="#">About Us</a></li>
@@ -39,7 +40,7 @@
                             <li><a href="#">Terms & Condition</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-12">
                         <h3 class="footer-title mb-4">Photo Gallery</h3>
                         <div class="gallery">
                             <a href="#" class="gallery-item">
@@ -62,12 +63,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h3 class="footer-title mb-4">Follow Us on WeChat</h3>
-                        <div class="wechat-container">
-                            <img src="@/assets/images/code.png" alt="WeChat QR Code" class="qr-code">
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -234,24 +230,6 @@ export default {
     transform: scale(1.1);
 }
 
-.wechat-container {
-    display: flex;
-    justify-content: center;
-}
-
-.qr-code {
-    max-width: 80%;
-    border-radius: 8px;
-    background: white;
-    padding: 10px;
-    transition: var(--transition);
-}
-
-.qr-code:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
 .footer-bottom {
     background: rgba(0, 0, 0, 0.2);
     padding: 20px 0;
@@ -273,7 +251,7 @@ export default {
     .footer-wave {
         top: -40px;
     }
-    
+
     .gallery {
         grid-template-columns: repeat(2, 1fr);
     }

@@ -151,9 +151,9 @@
         <!-- CTA Section -->
         <div class="row mt-5">
           <div class="col-12 text-center">
-            <a href="/#appointment" class="btn btn-primary btn-lg py-3 px-5 wow fadeInUp" data-wow-delay="0.3s">
+            <router-link to="/" class="btn btn-primary btn-lg py-3 px-5 wow fadeInUp" @click.native="scrollToAppointment" data-wow-delay="0.3s">
               Book Your Party Now <i class="fas fa-arrow-right ms-2"></i>
-            </a>
+            </router-link>
           </div>
         </div>
       </div>
@@ -164,6 +164,25 @@
 <script>
 export default {
   name: 'PartiesPage',
+  methods: {
+    scrollToAppointment() {
+      // 如果已经在首页，滚动到appointment部分
+      if (this.$route.path === '/') {
+        this.$nextTick(() => {
+          const appointmentSection = document.getElementById('appointment');
+          if (appointmentSection) {
+            appointmentSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      } else {
+        // 如果不在首页，导航到首页并传递scrollTo参数
+        this.$router.push({ 
+          path: '/', 
+          query: { scrollTo: 'appointment' }
+        });
+      }
+    }
+  }
 };
 </script>
 

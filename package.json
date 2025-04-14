@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "deploy-all": "git add . && git commit -m \"更新代码\" && git push origin main && npm run build && echo \"babyccino.coffee\" > dist/CNAME && git add dist -f && git commit -m \"更新网站\" && git subtree push --prefix dist origin gh-pages"
   },
   "homepage": "https://clownhy.github.io/babyccino/",
   "dependencies": {
