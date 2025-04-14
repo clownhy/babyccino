@@ -19,7 +19,7 @@
                         <h3 class="footer-title mb-4">Get In Touch</h3>
                         <div class="contact-info">
                             <p class="footer-item"><i class="fa fa-map-marker-alt me-3"></i>95 Forest Rd, Hurstville NSW 2220</p>
-                            <p class="footer-item"><i class="fa fa-phone-alt me-3"></i>+45 8168509</p>
+                            <p class="footer-item"><i class="fa fa-phone-alt me-3"></i>045 8168509</p>
                             <p class="footer-item"><i class="fa fa-envelope me-3"></i>babyccinohurstvill@gmail.com</p>
                         </div>
                         <div class="social-links mt-4">
