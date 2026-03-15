@@ -33,7 +33,7 @@
                 <li><i class="fas fa-check-circle text-primary me-2"></i> 3-hours play time for private party</li>
                 <li><i class="fas fa-check-circle text-primary me-2"></i> No walk-in accepted during the private party period</li>
                 <li><i class="fas fa-check-circle text-primary me-2"></i> 20 kids meals included (Chips & Chicken Nuggets, Bottle of Juice, Fresh fruits)</li>
-                <li><i class="fas fa-info-circle text-primary me-2"></i> Extra Entry: $15 per kid</li>
+                <li><i class="fas fa-info-circle text-primary me-2"></i> Extra Entry: $20 per kid</li>
               </ul>
 
               <div class="party-schedule-compact mt-3">
