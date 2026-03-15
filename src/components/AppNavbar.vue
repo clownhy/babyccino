@@ -17,6 +17,9 @@
             <router-link class="nav-link" to="/" @click.native="goToFeatures">Our Features</router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link" to="/pricing">Entry Ticket</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" to="/eat-drink">Menu</router-link>
           </li>
           <!-- 暂时隐藏Play Area链接，待内容完善后再显示

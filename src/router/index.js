@@ -5,6 +5,7 @@ import HomeView from '../views/HomePage.vue';
 import PlayAreaView from '../views/PlayArea.vue';
 import EatDrinkView from '../views/EatDrink.vue';
 import PartiesView from '../views/PartiesPage.vue';
+import PricingView from '../views/PricingPage.vue';
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,11 @@ const routes = [
     path: '/parties',
     name: 'PartiesView',
     component: PartiesView,
+  },
+  {
+    path: '/pricing',
+    name: 'PricingView',
+    component: PricingView,
   },
 ];
 
