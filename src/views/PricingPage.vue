@@ -94,7 +94,7 @@
 
         <!-- CTA -->
         <div class="text-center mt-5">
-          <router-link to="/" class="btn btn-primary btn-lg py-3 px-5" @click.native="scrollToAppointment">
+          <router-link to="/" class="btn btn-primary btn-lg py-3 px-5" @click="scrollToAppointment">
             Book Now <i class="fas fa-arrow-right ms-2"></i>
           </router-link>
         </div>

@@ -287,7 +287,7 @@
         <!-- CTA Section -->
         <div class="row mt-5">
           <div class="col-12 text-center">
-            <router-link to="/" class="btn btn-primary btn-lg py-3 px-5 wow fadeInUp" @click.native="scrollToAppointment" data-wow-delay="0.3s">
+            <router-link to="/" class="btn btn-primary btn-lg py-3 px-5 wow fadeInUp" @click="scrollToAppointment" data-wow-delay="0.3s">
               Book Your Party Now <i class="fas fa-arrow-right ms-2"></i>
             </router-link>
           </div>

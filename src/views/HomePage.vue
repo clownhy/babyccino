@@ -110,6 +110,10 @@ import About from '@/components/AppAbout.vue';
 import Menu from '@/components/AppMenu.vue';
 import Appointment from '@/components/AppAppointment.vue';
 
+import play3Img from '@/assets/images/play3.jpg';
+import play2Img from '@/assets/images/play2.jpg';
+import play1Img from '@/assets/images/play1.jpg';
+
 export default {
   name: 'HomePage',
   components: {
@@ -122,21 +126,21 @@ export default {
     return {
       carouselItems: [
         {
-          image: require('@/assets/images/play3.jpg'),
+          image: play3Img,
           title: 'The Perfect Cafe for Kids and Families',
           description: 'At our cafe, kids can play and learn while parents enjoy a cup of coffee. Our environment is safe and welcoming for all families.',
           button1: 'Learn More',
           button2: 'Our Activities'
         },
         {
-          image: require('@/assets/images/play2.jpg'),
+          image: play2Img,
           title: 'Creating a Brighter Future for Your Child',
           description: 'We offer a variety of educational and entertaining activities to help children learn and grow. Join us in creating a joyful and knowledgeable future for kids.',
           button1: 'Learn More',
           button2: 'Our Activities'
         },
         {
-          image: require('@/assets/images/play1.jpg'),
+          image: play1Img,
           title: 'Growing Up with Joy',
           description: 'Our cafe is not just a playground for kids but also a place for them to learn and grow. We strive to provide an environment where children are happy and parents are at ease.',
           button1: 'Learn More',
@@ -221,7 +225,7 @@ export default {
       setTimeout(tryScrolling, 800); // Increased from 500ms to 800ms
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     // 移除滚动事件监听
     window.removeEventListener('scroll', this.handleScroll);
   },

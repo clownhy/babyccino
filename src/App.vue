@@ -57,7 +57,7 @@ section[id] {
   transition: opacity 0.3s;
 }
 
-.fade-enter,
+.fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }
@@ -96,7 +96,7 @@ section[id] {
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.page-enter,
+.page-enter-from,
 .page-leave-to {
   opacity: 0;
   transform: translateY(20px);

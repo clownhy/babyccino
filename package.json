@@ -1,36 +1,26 @@
 {
   "name": "babyccino",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "deploy-all": "git add . && git commit -m \"更新代码\" && git push origin main && npm run build && echo \"babyccino.coffee\" > dist/CNAME && git add dist -f && git commit -m \"更新网站\" && git subtree push --prefix dist origin gh-pages"
   },
   "homepage": "https://clownhy.github.io/babyccino/",
   "dependencies": {
+    "vue": "^3.5.0",
+    "vue-router": "^4.5.0",
     "@fortawesome/fontawesome-free": "^6.7.2",
-    "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
-    "core-js": "^3.6.5",
-    "jquery": "^3.7.1",
-    "popper.js": "^1.16.1",
-    "swiper": "^6.8.4",
-    "vue": "^2.6.11",
-    "vue-router": "^3.6.5"
+    "@popperjs/core": "^2.11.8"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "babel-eslint": "^10.1.0",
-    "cache-loader": "^4.1.0",
-    "css-loader": "^6.7.3",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "gh-pages": "^5.0.0",
-    "style-loader": "^3.3.1",
-    "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.46.0"
+    "@vitejs/plugin-vue": "^5.2.0",
+    "vite": "^6.3.0",
+    "gh-pages": "^6.3.0"
   }
 }

@@ -1,13 +1,10 @@
 // src/router/index.js
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import HomeView from '../views/HomePage.vue';
 import PlayAreaView from '../views/PlayArea.vue';
 import EatDrinkView from '../views/EatDrink.vue';
 import PartiesView from '../views/PartiesPage.vue';
 import PricingView from '../views/PricingPage.vue';
-
-Vue.use(VueRouter);
 
 const routes = [
   {
@@ -37,9 +34,8 @@ const routes = [
   },
 ];
 
-const router = new VueRouter({
-  mode: 'hash',
-  base: process.env.NODE_ENV === 'production' ? '/babyccino/' : '/',
+const router = createRouter({
+  history: createWebHashHistory(),
   routes,
 });
 

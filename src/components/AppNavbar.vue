@@ -14,7 +14,7 @@
             <router-link class="nav-link" to="/" exact>Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/" @click.native="goToFeatures">Our Features</router-link>
+            <router-link class="nav-link" to="/" @click="goToFeatures">Our Features</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/pricing">Entry Ticket</router-link>
